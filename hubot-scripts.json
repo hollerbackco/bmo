@@ -1,1 +1,2 @@
-["shipit.coffee", "redis-brain.coffee", "yell.coffee"]
+["shipit.coffee", "redis-brain.coffee", "yell.coffee",
+ "giphy.coffee", "tell.coffee", "working-on.coffee"]
