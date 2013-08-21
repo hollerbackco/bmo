@@ -3,10 +3,13 @@
 #
 # Commands:
 #   hubot + <key> - increment <key> counter
+#   hubot count <key> - print <key> counter
+#   hubot count-reset <key> - reset <key> counter
+
 module.exports = (robot) ->
   robot.brain.data.counters = {}
 
-  counter = 
+  counter =
     increment: (key) ->
       count = robot.brain.data.counters[key]
       count = if count?
@@ -19,7 +22,7 @@ module.exports = (robot) ->
       if counter.hasKey key
         robot.brain.data.counters[key]
       else
-        counter.set(key, 0)
+        counter.set key, 0
 
     set: (key,value=0) ->
       robot.brain.data.counters[key] = value
@@ -39,9 +42,9 @@ module.exports = (robot) ->
   robot.respond /\+ (.*)$/i, (msg) ->
     key = msg.match[1]
     count = counter.increment(key)
-    msg.send "#{key} count: #{count}"
+    msg.send "\"#{key}\" count: #{count}"
 
-  robot.respond /reset (.*)$/i, (msg) ->
+  robot.respond /count-reset (.*)$/i, (msg) ->
     key = msg.match[1]
     counter.reset(key)
     msg.send "reset \"#{key}\": 0"
