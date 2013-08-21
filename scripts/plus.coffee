@@ -13,7 +13,7 @@ module.exports = (robot) ->
     increment: (key) ->
       count = robot.brain.data.counters[key]
       count = if count?
-        count[key] += 1
+        count += 1
       else
         1
       counter.set key, count
