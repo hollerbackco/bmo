@@ -28,7 +28,7 @@ module.exports = (robot) ->
       robot.brain.data.counters[key] = value
 
     hasKey: (key) ->
-      robot.brain.data.counters.[key]?
+      robot.brain.data.counters[key]?
 
     reset: (key) ->
       delete robot.brain.data.counters[key]
