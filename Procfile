@@ -1,1 +1,1 @@
-web: bin/hubot -a hipchat -n Bmo
+web: bin/hubot -a slack -n Bmo
